@@ -1,7 +1,11 @@
 export interface IRepositoryItemProps {
   repository: {
-    name: string;
-    description: string;
-    html_url: string;
+    cnpj: number;
+    razaoSocial: string;
+    endereço: string;
+    nome: string;
+    peso: string;
+    volume: string;
+    valor: string;
   };
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { RepositoryItem } from "../RepositoryItem";
 import { IRepository } from "./@interfaces";
 import "../../styles/repositories.scss";
@@ -19,9 +19,8 @@ export function RepositoryList() {
   }
 
   useEffect(() => {
-    fetch("https://api.github.com/orgs/rocketseat/repos")
-      .then((response) => response.json())
-      .then((data) => setRepositories(data));
+    let data = require("../../repo.json")
+      .then((data: SetStateAction<IRepository[]>) => setRepositories(data));
   }, []);
 
   return (
@@ -30,7 +29,7 @@ export function RepositoryList() {
 
       <ul>
         {repositories.map((repository) => (
-          <RepositoryItem key={repository.name} repository={repository} />
+          <RepositoryItem key={repository.nome} repository={repository} />
         ))}
       </ul>
     </section>
