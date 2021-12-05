@@ -1,15 +1,23 @@
 section.entrega-list {
   margin: 40px;
 
+  #idDestin,
+  button {
+    border-radius: 18px 18px 18px 1px;
+    width: 18vw;
+  }
+
   button {
     background-color: #1BBA93;
     color: white;
     border-radius: 12px;
     margin-bottom: 1vh;
+
   }
 
-  button:hover {
 
+  button:hover {
+    background-color: #02916d;
     cursor: pointer;
     transition: 0.9s;
   }
@@ -24,47 +32,35 @@ section.entrega-list {
     li {
       display: grid;
       grid-template-areas:
-        'a a a a a a'
-        'b q q q p p'
-        'b i i i i i';
-      border: solid 7px #8257e6;
+        'a a a a i i'
+        'b b b b i i';
+      border: solid 1px #060607;
+      background-color: #d6d6d696;
       border-radius: 12px;
       margin-bottom: 2vw;
+      height: 27vh;
 
 
-
-      a {
+      .a {
+        text-decoration: solid;
         text-align: center;
         color: #1BBA93;
+        margin-top: 2vh;
       }
+
 
       b {
-        text-align: center;
-        color: #1BBA93;
-      }
-
-      q {
-        text-align: center;
-        color: #1BBA93;
-      }
-
-      p {
+        margin-top: 2vh;
         text-align: center;
         color: #1BBA93;
       }
 
       i {
+        margin-top: 2vh;
+        font-weight: 900;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         text-align: center;
         color: #1BBA93;
-      }
-
-      .i {
-        text-align: center;
-        width: 33vw;
-      }
-
-      .i2 {
-        text-align: center;
         width: 33vw;
       }
     }

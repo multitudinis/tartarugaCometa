@@ -1,6 +1,12 @@
+import { FiAward } from "react-icons/fi";
+import Swal from 'sweetalert2'
 import { FormEvent, useState } from "react";
 import { api } from "../services/api";
 import { IentregaItemProps } from "./@interfaces";
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
+
 
 export function EntregaItem({ entrega }: IentregaItemProps) {
 
@@ -20,33 +26,50 @@ export function EntregaItem({ entrega }: IentregaItemProps) {
       }
 
       api.put('', entreg)
-      alert('Entrega confirmada!')
+      MySwal.fire({
+        title: 'Parabéns!',
+        text: 'Entrega confirmada!',
+        confirmButtonText: 'Cool'
+      })
     }
     else {
-      alert('ID do destinatário está incorreto')
+      MySwal.fire({
+        title: 'Erro!',
+        text: 'ID do destinatário está incorreto',
+        confirmButtonText: 'Cool'
+      })
+
     }
   }
 
   return (
     <li>
-      <a>RazSocial: {entrega.razaoSocial}</a>
-      <a>CNPJ: {entrega.cnpj}</a>
-      <a>Valor: R${entrega.valor}</a>
-      <a>Endereço de entrega: {entrega.endereçoDestinatario}</a>
-      <b>Nome Destinatario: {entrega.nomeDestinatario}</b>
-      <q>Entrega concluída: {entrega.entregaFeita}!</q>
-      <q>Produto: {entrega.nomeProduto}</q>
-      <p>Peso: {entrega.peso}Kg</p>
-      <p>Volume: {entrega.volume}L</p>
-      <i className="i">Endereço do remetente: {entrega.endereçoRemetente}</i>
-      <i className="i2">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="idDestin">Id Destinatário:
-            <input id="idDestin" value={idDestin}
-              onChange={event => setIdDestin(event.target.value)} />
-          </label>
-          <button type="submit">Confirma Entrega</button>
-        </form>
+      <b className="a">RazSocial: <br />{entrega.razaoSocial}</b>
+      <b className="a">CNPJ: <br />{entrega.cnpj}</b>
+      <b className="a">Valor: <br />R${entrega.valor}</b>
+      <i>Endereço de entrega: <br />{entrega.endereçoDestinatario}</i>
+      <b>Nome Destinatario: <br />{entrega.nomeDestinatario}</b>
+      <b className="important!">
+        <div>
+        </div></b>
+      <b>Produto: <br />{entrega.nomeProduto} </b>
+      <b>Peso: <br />{entrega.peso}Kg</b>
+      <b>Volume: <br />{entrega.volume}L</b>
+      <i className="i">Endereço do remetente: <br />{entrega.endereçoRemetente}</i>
+      <i className="i">{entrega.entregaFeita ?
+        (<div>
+          <FiAward size={32} color="#39CC83" />
+          Entrega
+          Concluída!!
+        </div>) : (<div>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="idDestin">Id Destinatário:<br />
+              <input id="idDestin" value={idDestin}
+                onChange={event => setIdDestin(event.target.value)} />
+            </label>
+            <button type="submit">Confirmar Entrega</button>
+          </form>
+        </div>)}
       </i>
 
     </li>
