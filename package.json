@@ -4,7 +4,7 @@
     "name": ""
   },
   "scripts": {
-    "dev": "webpack serve",
+    "dev": "webpack serve --port 9000",
     "build": "cross-env NODE_ENV=production webpack",
     "babel": "babel src/index.jsx --out-file dist/bundle.js",
     "webpack:dev": "NODE_ENV=development yarn webpack"
@@ -14,9 +14,11 @@
   "license": "MIT",
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "axios": "^0.24.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-refresh": "^0.9.0"
+    "react-refresh": "^0.9.0",
+    "react-router-dom": "^6.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
