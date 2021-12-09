@@ -29,14 +29,14 @@ export function EntregaItem({ entrega }: IentregaItemProps) {
       MySwal.fire({
         title: 'Parabéns!',
         text: 'Entrega confirmada!',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'OK'
       })
     }
     else {
       MySwal.fire({
         title: 'Erro!',
         text: 'ID do destinatário está incorreto',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'OK'
       })
 
     }
